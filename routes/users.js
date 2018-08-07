@@ -1,12 +1,13 @@
 const router = require('koa-router')()
 
-router.prefix('/users')
-
 router.get('/', function (ctx, next) {
-  ctx.body = 'this is a users response!'
+    let  id = ctx.query.id;
+    ctx.body = "your id is:" + id + ", thank you !";
+
 })
 
-router.get('/bar', function (ctx, next) {
+router.get('/bar/:id', function (ctx, next) {
+  let id = ctx.params.id;
   ctx.body = 'this is a users/bar response'
 })
 
